@@ -1,0 +1,15 @@
+{
+  "name": "@rr/photo-viewer",
+  "version": "1.0.0-alpha.0",
+  "repository": "https://github.com/dherges/ng-packaged.git",
+  "author": "Rokas Rudgalvis <rokasr788@gmail.com>",
+  "license": "GPL-3",
+  "private": true,
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+      "entryFile": "src/public_api.ts"
+    },
+    "dest": "../dist/my-lib"
+  }
+}
