@@ -1,15 +1,18 @@
 {
   "name": "@rr/photo-viewer",
-  "version": "1.0.0-alpha.0",
-  "repository": "https://github.com/dherges/ng-packaged.git",
+  "version": "1.0.0",
+  "repository": "https://github.com/RokasRudgalvis/photo-viewer.git",
   "author": "Rokas Rudgalvis <rokasr788@gmail.com>",
   "license": "GPL-3",
-  "private": true,
+  "private": false,
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
     "lib": {
-      "entryFile": "src/public_api.ts"
+      "entryFile": "src/public_api.ts",
+      "umdModuleIds": {
+        "ngx-swiper-wrapper": "ngx-swiper-wrapper"
+      }
     },
-    "dest": "../dist/my-lib"
+    "dest": "../../../dist/lib"
   }
 }

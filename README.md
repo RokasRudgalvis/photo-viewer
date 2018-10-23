@@ -1,1 +1,1 @@
-# photo-viewer
+# Angular 6 photo viewer

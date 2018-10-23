@@ -1,3 +1,41 @@
-<p>
-  photo-viewer works!
-</p>
+<div class="photo-viewer
+                {{ inited ? 'photo-viewer---inited' : ''}}
+                {{ fullyLoaded ? 'photo-viewer---loaded' : ''}}"
+     [@openAnimation]="fullyLoaded">
+
+    <div class="photo-viewer--photo {{ showPreloader ? 'photo-viewer--photo---show-preloader' : ''}}">
+        <div class="photo-viewer--loader "></div>
+        <img (load)="imageLoaded()"
+             src="{{ currentPicture ? currentPicture.src : '' }}"
+             alt="{{ currentPicture ? currentPicture.alt : '' }}"
+             title="{{ currentPicture ? currentPicture.title : '' }}}">
+        <div class="photo-viewer--previous">
+            <svg (click)="viewPrevious()" viewBox="0 0 24 24">
+                <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+            </svg>
+        </div>
+        <div class="photo-viewer--next">
+            <svg (click)="viewNext()" viewBox="0 0 24 24">
+                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+            </svg>
+        </div>
+    </div>
+    <div class="photo-viewer--overlay"></div>
+    <div class="photo-viewer--close" (click)="emitClose()">
+        <svg viewBox="0 0 24 24">
+            <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+    </div>
+
+    <div class="photo-viewer--thumbnails">
+        <swiper #swiper [config]="swiperConfig">
+            <div style="width: 80px; cursor: pointer;" *ngFor="let image of images; let i = index">
+                <img (load)="imageLoaded()"
+                     (click)="thumbnailClickHandler($event)"
+                     src="{{ getThumbnail(image) }}"
+                     [attr.slideNumber]="i" alt=""
+                     [attr.active]="image.activeSlide">
+            </div >
+        </swiper>
+    </div>
+</div>
